@@ -1,0 +1,39 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <meta charset="UTF-8">  
+        <title></title>  
+          
+        <script src="https://unpkg.com/vue"></script>  
+    </head>  
+      
+    <body>  
+        <div id="vue01">  
+            <input placeholder="请输入" >  
+            <h1>  
+                测试关闭浏览器  
+            </h1>           
+        </div>  
+              
+        <script>        
+              //关闭浏览器提示信息  
+            window.onbeforeunload = function (e) {  
+              e = e || window.event;  
+              var y = e.clientY;  
+              if (y <= 0 || y >= Math.max(document.body ? document.body.clientHeight : 0, document.documentElement ? document.documentElement.clientHeight : 0))  
+              {  
+                //IE 和 Firefox   
+                alert("IE or Firefox");  
+                e.returnValue = "确定要刷新或关闭浏览器窗口？";  
+              }  
+              //谷歌        
+              console.log("beforeclosing");  
+              return "确定要刷新或关闭浏览器窗口？";             
+            }  
+              
+        </script>  
+          
+          
+          
+    </body>  
+</html> 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="btn">点我</button>
+    </div>
+
+
+
+
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            mounted() {
+                window.jumpapp = this.jumpapp();
+            },
+            methods: {
+                btn() {
+                    // window.App.callNative("appLogIn", {
+                    //     "callbackId": "appLogIn",
+                    //     "is": "1",
+                    // })
+                    window.nativeCallback("getLocation", {})
+                },
+            }
+        })
+
+        function getLocation(data) {
+            alert(data);
+        }
+    </script>
+</body>
+
+</html>
